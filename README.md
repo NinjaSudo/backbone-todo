@@ -20,9 +20,9 @@ You'll need an understanding of JavaScript, here are some references you can use
  
 Additionally a basic understanding of HTML5 & CSS will be helpful. For that refer to the [Mozilla Developer Network][https://developer.mozilla.org/en-US/docs/Web] for the Basics.
 
-## Models & Views
+## Models
 
-The `Model` contains the interactive data and the logic surrounding it, such as data validation, getters and setters, default values, etc. Check out the [Model][models] & [View][views] documentation for more.
+The `Model` contains the interactive data and the logic surrounding it, such as data validation, getters and setters, default values, etc. Check out the [Model][models] documentation for more.
 
 Create your ToDo Model and start the namespace of your app:
 
@@ -39,7 +39,21 @@ app.Todo = Backbone.Model.extend({
 });
 ```
 
-## Collection
+## Views
+
+```JavaScript
+// 4. Render individual todo items list (li)
+app.TodoView = Backbone.View.extend({
+    tagName: 'li',
+    template: _.template($('#item-template').html()),
+    render: function(){
+        this.$el.html(this.template(this.model.toJSON()));
+        return this; // enable chained calls
+    }
+});
+```
+
+## Collections
 
 Collections are ordered sets of models, for more details check out the [Backbone docs][collections].
 
