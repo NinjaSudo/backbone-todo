@@ -41,6 +41,8 @@ app.Todo = Backbone.Model.extend({
 
 ## Views
 
+The `View` contains the template and behaviors of elements in your app. Learn more in the [documentation][views].
+
 ```JavaScript
 // 4. Render individual todo items list (li)
 app.TodoView = Backbone.View.extend({
